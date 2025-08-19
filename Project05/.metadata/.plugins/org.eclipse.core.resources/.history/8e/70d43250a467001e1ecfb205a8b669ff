@@ -1,0 +1,116 @@
+//------------------------------------------------------------------------------
+//
+//  Description: This file contains the Switch Control
+//
+//
+//  Jim Carlson
+//  Jan 2023
+//  Built with Code Composer Version: CCS12.4.0.00007_win64
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+#include  "timers.h"
+
+// Function Prototypes
+void enable_switch_SW1(void);
+void enable_switch_SW2(void);
+void Switches_Process(void);
+void Switch1_Process(void);
+void Switch2_Process(void);
+
+//project 4 globals
+extern char event;
+extern unsigned int num;
+unsigned int okay_to_look_at_switch2 = OKAY;
+unsigned int sw2_position = RELEASED;
+unsigned int okay_to_look_at_switch1 = OKAY;
+unsigned int sw1_position = RELEASED;
+unsigned int count_debounce_SW1 = 0;
+unsigned int count_debounce_SW2 = 0;
+unsigned int num_event = 1;
+
+
+//------------------------------------------------------------------------------
+// Switch Configurations
+extern char display_line[4][11];
+extern char *display[4];
+char pwm_state;
+extern char change;
+char run_wheels;
+extern volatile unsigned char display_changed;
+extern unsigned int moving;         //Variable Tyler created
+extern char start_moving;           //Variable Tyler created
+
+unsigned int Last_Time_Sequence;   //Variable to identify Time_Sequence has changed
+unsigned int cycle_time;            // time base used to control making shapes
+unsigned int time_change;           // an identifier that a change has occurred
+unsigned int delay_state;
+unsigned int left_motor_count;
+unsigned int right_motor_count;
+unsigned int segment_count;
+char state;
+unsigned int startflag;
+char event;
+unsigned int second;
+
+#include  "timers.h"
+
+
+//void Switches_Process(void){
+    //Switch1_Process();
+    //Switch2_Process();
+
+//}
+
+
+//void Switch1_Process(void){
+////------------------------------------------------------------------------------
+//// Switch 1 Configurations
+////------------------------------------------------------------------------------
+//    if (okay_to_look_at_switch1 && sw1_position){
+//        if (!(P4IN & SW1)){
+//            sw1_position = PRESSED;
+//            okay_to_look_at_switch1 = NOT_OKAY;
+//            count_debounce_SW1 = DEBOUNCE_RESTART;
+//            start_moving = 1;
+//            event = FOR;
+//            second = 1;
+//        }
+//    }
+//    if (count_debounce_SW1 <= DEBOUNCE_TIME){
+//        count_debounce_SW1++;
+//    }
+//    else{
+//        okay_to_look_at_switch1 = OKAY;
+//        if (P4IN & SW1){
+//            sw1_position = RELEASED;
+//        }
+//    }
+//}
+//
+//void Switch2_Process(void){
+//    if (okay_to_look_at_switch2 && sw2_position){
+//        if (!(P2IN & SW2)){
+//            sw2_position = PRESSED;
+//            okay_to_look_at_switch2 = NOT_OKAY;
+//            count_debounce_SW2 = DEBOUNCE_RESTART;
+//
+//        }
+//    }
+//    if (count_debounce_SW2 <= DEBOUNCE_TIME){
+//        count_debounce_SW2++;
+//    }
+//    else{
+//        okay_to_look_at_switch2 = OKAY;
+//        if (P4IN & SW2){
+//            sw2_position = RELEASED;
+//        }
+//    }
+//}
+//

@@ -1,0 +1,78 @@
+//------------------------------------------------------------------------------
+//
+//  Description: This file contains the Switch Control
+//
+//
+//  Jim Carlson
+//  Jan 2023
+//  Built with Code Composer Version: CCS12.4.0.00007_win64
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+
+// Function Prototypes
+void Init_Switches(void);
+void enable_switch_SW1(void);
+void enable_switch_SW2(void);
+void Switches_Process(void);
+void lcd_180(void);
+void Go_Forward(void);
+void stop(void);
+
+
+//------------------------------------------------------------------------------
+// Switch Configurations
+extern char display_line[4][11];
+extern char *display[4];
+char pwm_state;
+extern char change;
+char run_wheels;
+extern volatile unsigned char display_changed;
+extern unsigned int moving;         //Variable Tyler created
+extern char start_moving;           //Variable Tyler created
+
+unsigned int Last_Time_Sequence;   //Variable to identify Time_Sequence has changed
+unsigned int cycle_time;            // time base used to control making shapes
+unsigned int time_change;           // an identifier that a change has occurred
+unsigned int delay_state;
+unsigned int left_motor_count;
+unsigned int right_motor_count;
+unsigned int segment_count;
+char state;
+unsigned int flag;
+char event;
+
+
+void Switches_Process(void){
+//------------------------------------------------------------------------------
+  if (!(P4IN & SW1)){
+    display_changed = TRUE;
+    port = GPIO;
+//    if(flag == 0) {
+//        strcpy(display_line[0], "Driving in a");
+//        strcpy(display_line[1], "  CIRCLE  ");
+//        event = CIRCLE;
+//    }
+//    else {
+//        strcpy(display_line[0], "Driving in a");
+//        strcpy(display_line[1], "   Figure8   ");
+//        event = FIGURE8;
+//    }
+  }
+
+  if (!(P2IN & SW2)) {
+    // strcpy(display_line[0], "Driving in a");
+    // strcpy(display_line[1], "  TRIANGLE  ");
+    display_changed = TRUE;
+    // event = TRIANGLE;
+
+  }
+//------------------------------------------------------------------------------
+}
+

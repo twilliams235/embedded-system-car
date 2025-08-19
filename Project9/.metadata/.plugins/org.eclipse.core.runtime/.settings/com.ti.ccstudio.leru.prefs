@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+state_.org.eclipse.debug.ui.ExpressionView=<?xml version\="1.0" encoding\="UTF-8"?>\n<View>\n<PERSISTABLE IMemento.internal.id\="VarPersitable"/>\n<PERSISTABLE IMemento.internal.id\="ExpandReveal">\n<Model>\n<Element Flags\="33554432" Id\="USB_Process_Tx"/>\n<Element Flags\="33554432" Id\="IOT_Data">\n<Element Flags\="33554432" Id\="(IOT_Data)[0]"/>\n<Element Flags\="1048576" Id\="(IOT_Data)[1]"/>\n<Element Flags\="33554432" Id\="(IOT_Data)[2]"/>\n<Element Flags\="33554432" Id\="(IOT_Data)[3]"/>\n</Element>\n</Model>\n</PERSISTABLE>\n</View>

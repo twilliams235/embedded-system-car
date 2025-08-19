@@ -1,0 +1,117 @@
+/*
+ * wheels.c
+ *
+ *  Created on: Sep 26, 2023
+ *      Author: tylerwilliams
+ */
+
+
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+#include  "timers.h"
+
+  // Global Variables
+volatile char slow_input_down;
+extern char display_line[4][11];
+extern char *display[4];
+unsigned char display_mode;
+extern volatile unsigned char display_changed;
+extern volatile unsigned char update_display;
+extern volatile unsigned int update_display_count;
+extern volatile unsigned int Time_Sequence;
+extern volatile char one_time;
+unsigned int test_value;
+char chosen_direction;
+char change;
+
+unsigned int wheel_move;
+char forward;
+unsigned int moving;         //Variable Tyler created
+char start_moving;           //Variable Tyler created
+unsigned int Last_Time_Sequence;   //Variable to identify Time_Sequence has changed
+unsigned int cycle_time;            // time base used to control making shapes
+unsigned int time_change;           // an identifier that a change has occurred
+unsigned int delay_start;
+unsigned int left_motor_count;
+unsigned int right_motor_count;
+unsigned int segment_count;
+char state;
+char event;
+
+
+// Function Prototype
+void Go_Forward(void);
+void stop(void);
+void Go_Reverse(void);
+
+
+/*
+ * Function written for project 3 to go forwards
+ */
+void Go_Forward(void) {
+    stop();
+    if (!(P6OUT |= L_FORWARD)) {
+        P6OUT |= L_FORWARD;
+    }
+    if (!(P6OUT |= R_FORWARD)) {
+        P6OUT |= R_FORWARD;
+    }
+}
+
+/*
+ * Function written for project 5 to go backwards
+ */
+void Go_Reverse(void) {
+    stop();
+    if (!(P6OUT |= L_REVERSE)) {
+        P6OUT |= L_REVERSE;
+    }
+    if (!(P6OUT |= R_REVERSE)) {
+        P6OUT |= R_REVERSE;
+    }
+}
+
+/*
+ * Function written for project 5 to spin clockwise
+ */
+void Go_CW(void) {
+    stop();
+    if (!(P6OUT |= L_FORWARD)) {
+        P6OUT |= L_FORWARD;
+    }
+    if (!(P6OUT |= R_REVERSE)) {
+        P6OUT |= R_REVERSE;
+    }
+}
+
+/*
+ * Function written for project 5 to spin counterclockwise
+ */
+void Go_CCW(void) {
+    stop();
+    if (!(P6OUT |= L_REVERSE)) {
+        P6OUT |= L_REVERSE;
+    }
+    if (!(P6OUT |= R_FORWARD)) {
+        P6OUT |= R_FORWARD;
+    }
+}
+
+/*
+ * Function written for project 3 to stop
+ */
+void stop(void) {
+    P6OUT &= ~L_FORWARD;
+    P6OUT &= ~R_FORWARD;
+
+    P6OUT &= ~L_REVERSE;
+    P6OUT &= ~R_REVERSE;
+}
+
+
+
+

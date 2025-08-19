@@ -1,0 +1,39 @@
+/*
+ * timers.h
+ *
+ *  Created on: Oct 09, 2023
+ *      Author: tylerwilliams
+ */
+
+
+
+#define TB0CCR0_INTERVAL    (5000) // 8,000,000 / 8 / 8 / (1 / 50msec)
+#define TB0CCR1_INTERVAL    (50000) // 8,000,000 / 8 / 8 / (1 / 800msec)
+#define TB0CCR2_INTERVAL    (50000) // 8,000,000 / 8 / 8 / (1 / 800msec)
+#define P4PUD               (P4OUT)
+#define P2PUD               (P2OUT)
+
+#define PWM_PERIOD                  (TB3CCR0)
+#define LCD_BACKLITE_DIMING         (TB3CCR1)
+#define SLOW                        (9000)
+#define SLOWER                      (7100)
+#define SLOWEST                     (4000)
+#define MID                          (15000)
+#define FAST                        (40000)
+#define PERCENT_100                 (50000)
+#define PERCENT_80                  (45000)
+#define LOOKING                     (0)
+#define FOUND                       (1)
+
+// Clock ===========================================================
+#define HEXZERO                       (0x30)
+#define HEXNINE                       (0x39)
+#define INCREMENT2                    (0x02)
+#define INCREMENT1                    (0x01)
+#define MS200                        (5)
+
+//FRAM COMMANDS ======================================================
+#define FASTBAUD                    ('F')
+#define SLOWBAUD                    ('S')
+#define ENABLEIOT                   ('E')
+

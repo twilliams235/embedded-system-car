@@ -1,0 +1,297 @@
+/*
+ * ports.c
+ *
+ *  Created on: Sep 14, 2023
+ *      Author: tylerwilliams
+ */
+
+
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+
+
+
+void Init_Ports() {
+    Init_Port1();
+    Init_Port2();
+    Init_Port3();
+    Init_Port4();
+    Init_Port5();
+    Init_Port6();
+}
+
+
+void Init_Port1(void) {
+    P1OUT = 0x00;               // P1 set Low
+    P1DIR = 0x00;               // Set P1 direction to output
+
+    //pin 0
+    P1SEL0 &= ~RED_LED;          // RED_LED GPIO operation
+    P1SEL1 &= ~RED_LED;          // RED_LED GPIO operation
+    P1OUT &= ~RED_LED;           // Initial value = low
+    P1DIR |= RED_LED;            // Direction = Output
+
+    //pin 1
+    P1SEL0 |= V_A1_SEEED;          // V_A1_SEEED function operation
+    P1SEL1 |= V_A1_SEEED;          // V_A1_SEEED function operation
+
+    //pin 2
+    P1SEL0 |= V_DETECT_L;       // V_DETECT_L function operation
+    P1SEL1 |= V_DETECT_L;       // V_DETECT_L function operation
+
+    //pin 3
+    P1SEL0 |= V_DETECT_R;       // V_DETECT_R function operation
+    P1SEL1 |= V_DETECT_R;       // V_DETECT_R function operation
+
+    //pin 4
+    P1SEL0 |= V_A4_SEEED;          // V_A4_SEEED function operation
+    P1SEL1 |= V_A4_SEEED;          // V_A4_SEEED function operation
+
+    //pin 5
+    P1SEL0 |= V_THUMB;          // V_THUMB function operation
+    P1SEL1 |= V_THUMB;          // V_THUMB function operation
+
+    //pin 6
+    P1SEL0 |= UCA0RXD;          // Receiver operation
+    P1SEL1 &= ~UCA0RXD;         // Receiver operation
+
+    //pin 7
+    P1SEL0 |= UCA0TXD;          // Transmitter operation
+    P1SEL1 &= ~UCA0TXD;         // Transmitter operation
+}
+
+
+void Init_Port2(void) {
+    P2OUT = 0x00;               // P2 set Low
+    P2DIR = 0x00;               // Set P2 direction to output
+
+    //pin 0
+    P2SEL0 &= ~DAC_CNTL1;       // RESET_LCD GPIO operation
+    P2SEL1 &= ~DAC_CNTL1;       // RESET_LCD GPIO operation
+    P2OUT &= ~DAC_CNTL1;        // Initial Value = Low / Off
+    P2DIR |= DAC_CNTL1;         // Direction = output
+
+    //pin 1
+    P2SEL0 &= ~CHECK_BAT;       // CHECK_BAT GPIO operation
+    P2SEL1 &= ~CHECK_BAT;       // CHECK_BAT GPIO operation
+    P2OUT &= ~CHECK_BAT;        // Initial Value = Low / Off
+    P2DIR |= CHECK_BAT;         // Direction = output
+
+    //pin 2
+    P2SEL0 &= ~IR_LED;          // P2_2 GPIO operation
+    P2SEL1 &= ~IR_LED;          // P2_2 GPIO operation
+    P2OUT &= ~IR_LED;           // Initial Value = Low / Off
+    P2DIR |= IR_LED;            // Direction = input
+
+    //pin 3
+    P2SEL0 &= ~SW2;             // SW2 Operation
+    P2SEL1 &= ~SW2;             // SW2 Operation
+    P2OUT |= SW2;               // Configure pullup resistor
+    P2DIR &= ~SW2;              // Direction = input
+    P2REN |= SW2;               // Enable pullup resistor
+
+    //pin 4
+    P2SEL0 &= ~IOT_RUN_RED;     // IOT_RUN_CPU GPIO operation
+    P2SEL1 &= ~IOT_RUN_RED;     // IOT_RUN_CPU GPIO operation
+    P2OUT &= ~IOT_RUN_RED;      // Initial Value = Low / Off
+    P2DIR |= IOT_RUN_RED;       // Direction = input
+
+    //pin 5
+    P2SEL0 &= ~DAC_ENB;         // DAC_ENB GPIO operation
+    P2SEL1 &= ~DAC_ENB;         // DAC_ENB GPIO operation
+    P2OUT |= DAC_ENB;           // Initial Value = High
+    P2DIR |= DAC_ENB;           // Direction = output
+
+    //pin 6
+    P2SEL0 &= ~LFXOUT;          // LFXOUT Clock operation
+    P2SEL1 |= LFXOUT;           // LFXOUT Clock operation
+
+    //pin 7
+    P2SEL0 &= ~LFXIN;           // LFXIN Clock operation
+    P2SEL1 |= LFXIN;            // LFXIN Clock operation
+}
+
+
+void Init_Port3(void) {
+    P3OUT = 0x00;               // P3 set Low
+    P3DIR = 0x00;               // Set P3 direction to output
+
+    //pin 0
+    P3SEL0 &= ~TEST_PROBE;      // TEST_PROBE GPIO operation
+    P3SEL1 &= ~TEST_PROBE;      // TEST_PROBE GPIO operation
+    P3OUT &= ~TEST_PROBE;       // Initial Value = Low / Off
+    P3DIR &= ~TEST_PROBE;       // Direction = input
+
+    //pin 1
+    P3SEL0 |= OA2O;             // OA2O function operation
+    P3SEL1 |= OA2O;             // OA2O function operation
+
+    //pin 2
+    P3SEL0 |= OA2N;             // OA2N function operation
+    P3SEL1 |= OA2N;             // OA2N function operation
+
+    //pin 3
+    P3SEL0 |= OA2P;             // OA2P function operation
+    P3SEL1 |= OA2P;             // OA2P function operation
+
+    //pin 4
+    P3SEL0 &= ~SMCLK_OUT;           // SMCLK GPIO operation
+    P3SEL1 &= ~SMCLK_OUT;           // SMCLK GPIO operation
+    P3OUT &= ~SMCLK_OUT;            // Initial Value = Low / Off
+    P3DIR &= ~SMCLK_OUT;            // Direction = output
+
+    //pin 5
+    P3SEL0 &= ~DAC_CNTL;        // DAC_CNTL GPIO operation
+    P3SEL1 &= ~DAC_CNTL;        // DAC_CNTL GPIO operation
+    P3OUT &= ~DAC_CNTL;         // Initial Value = Low / Off
+    P3DIR &= ~DAC_CNTL;         // Direction = input
+
+    //pin 6
+    P3SEL0 &= ~IOT_LINK_GRN;    // IOT_LINK_GRN GPIO operation
+    P3SEL1 &= ~IOT_LINK_GRN;    // IOT_LINK_GRN GPIO operation
+    P3OUT &= ~IOT_LINK_GRN;     // Initial Value = Low / Off
+    P3DIR &= ~IOT_LINK_GRN;     // Direction = input
+
+    //pin 7
+    P3SEL0 &= ~IOT_EN;          // IOT_EN GPIO operation
+    P3SEL1 &= ~IOT_EN;          // IOT_EN GPIO operation
+    P3OUT &= ~IOT_EN;           // Initial Value = Low / Off
+    P3DIR &= ~IOT_EN;           // Direction = input
+}
+
+
+void Init_Port4(void) {
+    P4OUT = 0x00;               // P4 set Low
+    P4DIR = 0x00;               // Set P4 direction to output
+
+    //pin 0
+    P4SEL0 &= ~RESET_LCD;       // DAC_CNTL1 GPIO operation
+    P4SEL1 &= ~RESET_LCD;       // DAC_CNTL1 GPIO operation
+    P4OUT &= ~RESET_LCD;        // Initial Value = Low / Off
+    P4DIR |= RESET_LCD;        // Direction = output
+
+    //pin 1
+    P4SEL0 &= ~SW1;             // SW1 GPIO operation
+    P4SEL1 &= ~SW1;             // SW1 GPIO operation
+    P4DIR &= ~SW1;              // Direction = input
+    P4REN |= SW1;
+    P4OUT |= SW1;
+
+    //pin 2
+    P4SEL0 |= UCA1TXD;          // USCI_A1 UART operation
+    P4SEL1 &= ~UCA1TXD;         // USCI_A1 UART operation
+
+    //pin 3
+    P4SEL0 |= UCA1RXD;          // USCI_A1 UART operation
+    P4SEL1 &= ~UCA1RXD;         // USCI_A1 UART operation
+
+    //pin 4
+    P4SEL0 &= ~UCB1_CS_LCD;     // UCB1_CS_LCD GPIO operation
+    P4SEL1 &= ~UCB1_CS_LCD;     // UCB1_CS_LCD GPIO operation
+    P4OUT |= UCB1_CS_LCD;       // Set SPI_CS_LCD Off [High]
+    P4DIR |= UCB1_CS_LCD;       // Set SPI_CS_LCD direction to output
+
+    //pin 5
+    P4SEL0 |= UCB1CLK;          // UCB1CLK SPI BUS operation
+    P4SEL1 &= ~UCB1CLK;         // UCB1CLK SPI BUS operation
+
+    //pin 6
+    P4SEL0 |= UCB1SIMO;         // UCB1SIMO SPI BUS operation
+    P4SEL1 &= ~UCB1SIMO;        // UCB1SIMO SPI BUS operation
+
+    //pin 7
+    P4SEL0 |= UCB1SOMI;         // UCB1SOMI SPI BUS operation
+    P4SEL1 &= ~UCB1SOMI;        // UCB1SOMI SPI BUS operation
+}
+
+
+void Init_Port5(void) {
+    P5OUT = 0x00;               // P5 set Low
+    P5DIR = 0x00;               // Set P5 direction to output
+
+    //pin 0
+    P5SEL0 &= ~V_BAT;           // V_BAT GPIO operation
+    P5SEL1 &= ~V_BAT;           // V_BAT GPIO operation
+    P5OUT &= ~V_BAT;
+    P5DIR &= ~V_BAT;
+
+    //pin 1
+    P5SEL0 &= ~V_5_0;           // V_5_0 GPIO operation
+    P5SEL1 &= ~V_5_0;           // V_5_0 GPIO operation
+    P5OUT &= ~V_5_0;
+    P5DIR &= ~V_5_0;
+
+    //pin 2
+    P5SEL0 &= ~V_DAC;           // V_DAC GPIO operation
+    P5SEL1 &= ~V_DAC;           // V_DAC GPIO operation
+    P5OUT &= ~V_DAC;
+    P5DIR &= ~V_DAC;
+
+    //pin 3
+    P5SEL0 &= ~V_3_3;           // V_3_3 GPIO operation
+    P5SEL1 &= ~V_3_3;           // V_3_3 GPIO operation
+    P5OUT &= ~V_3_3;
+    P5DIR &= ~V_3_3;
+
+    //pin 4
+    P5SEL0 &= ~IOT_BOOT;        // IOT_BOOT GPIO operation
+    P5SEL1 &= ~IOT_BOOT;        // IOT_BOOT GPIO operation
+    P5OUT &= ~IOT_BOOT;         // Initial Value = Low / Off
+    P5DIR &= ~IOT_BOOT;         // Direction = input
+
+}
+
+
+void Init_Port6(void) {
+    P6OUT = 0x00;               // P6 set Low
+    P6DIR = 0x00;               // Set P6 direction to output
+
+    //pin 0
+    P6SEL0 &= ~LCD_BACKLITE;    // LCD_BACKLITE GPIO operation
+    P6SEL1 &= ~LCD_BACKLITE;    // LCD_BACKLITE GPIO operation
+    P6OUT |= LCD_BACKLITE;      // Initial Value = HIGH
+    P6DIR |= LCD_BACKLITE;      // Direction = output
+
+    //pin 1
+    P6SEL0 &= ~R_FORWARD;       // R_REVERSE GPIO operation
+    P6SEL1 &= ~R_FORWARD;       // R_REVERSE GPIO operation
+    P6OUT &= ~R_FORWARD;        // Initial Value = Low / Off
+    P6DIR |= R_FORWARD;        // Direction = output
+
+    //pin 2
+    P6SEL0 &= ~R_REVERSE;       // R_FORWARD GPIO operation
+    P6SEL1 &= ~R_REVERSE;       // R_FORWARD GPIO operation
+    P6OUT &= ~R_REVERSE;        // Initial Value = Low / Off
+    P6DIR |= R_REVERSE;        // Direction = output
+
+    //pin 3
+    P6SEL0 &= ~L_FORWARD;       // L_REVERSE GPIO operation
+    P6SEL1 &= ~L_FORWARD;       // L_REVERSE GPIO operation
+    P6OUT &= ~L_FORWARD;        // Initial Value = Low / Off
+    P6DIR |= L_FORWARD;        // Direction = output
+
+    //pin 4
+    P6SEL0 &= ~L_REVERSE;       // L_FORWARD GPIO operation
+    P6SEL1 &= ~L_REVERSE;       // L_FORWARD GPIO operation
+    P6OUT &= ~L_REVERSE;        // Initial Value = Low / Off
+    P6DIR |= L_REVERSE;        // Direction = output
+
+    //pin 5
+    P6SEL0 &= ~P6_5;            // P6_5 GPIO operation
+    P6SEL1 &= ~P6_5;            // P6_5 GPIO operation
+    P6OUT &= ~P6_5;             // Initial Value = Low / Off
+    P6DIR &= ~P6_5;             // Direction = input
+
+    //pin 6
+    P6SEL0 &= ~GRN_LED;         // GRN_LED GPIO operation
+    P6SEL1 &= ~GRN_LED;         // GRN_LED GPIO operation
+    P6OUT &= ~GRN_LED;          // Initial Value = high
+    P6DIR |= GRN_LED;          // Direction = output
+
+}
+
+

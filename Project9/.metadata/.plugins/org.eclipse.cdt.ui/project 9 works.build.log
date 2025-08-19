@@ -1,0 +1,133 @@
+
+**** Build of configuration Debug for project Project 9 works ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../buffer.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="buffer.d_raw"  "../buffer.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'buffer.obj' failed
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../buffer.c", line 61: error #138: expression must be a modifiable lvalue
+"../buffer.c", line 62: warning #43-D: operand types are incompatible ("volatile char *" and "int")
+"../buffer.c", line 62: warning #154-D: conversion of nonzero integer to pointer
+"../buffer.c", line 87: warning #43-D: operand types are incompatible ("volatile char *" and "int")
+"../buffer.c", line 87: warning #154-D: conversion of nonzero integer to pointer
+"../buffer.c", line 91: warning #515-D: a value of type "volatile char *" cannot be assigned to an entity of type "char"
+"../buffer.c", line 86: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 114: error #138: expression must be a modifiable lvalue
+"../buffer.c", line 115: warning #43-D: operand types are incompatible ("volatile char *" and "int")
+"../buffer.c", line 115: warning #154-D: conversion of nonzero integer to pointer
+"../buffer.c", line 138: warning #43-D: operand types are incompatible ("volatile char *" and "int")
+"../buffer.c", line 138: warning #154-D: conversion of nonzero integer to pointer
+"../buffer.c", line 142: warning #515-D: a value of type "volatile char *" cannot be assigned to an entity of type "char"
+"../buffer.c", line 137: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 154: warning #515-D: a value of type "volatile char *" cannot be assigned to an entity of type "unsigned char"
+"../buffer.c", line 157: warning #515-D: a value of type "volatile char *" cannot be assigned to an entity of type "unsigned char"
+"../buffer.c", line 160: warning #515-D: a value of type "volatile char *" cannot be assigned to an entity of type "unsigned char"
+"../buffer.c", line 162: error #20: identifier "SLOWBAUD" is undefined
+"../buffer.c", line 169: error #20: identifier "FASTBAUD" is undefined
+"../buffer.c", line 176: error #20: identifier "ENABLEIOT" is undefined
+"../buffer.c", line 40: remark #1535-D: (ULP 8.1) variable "iot_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../buffer.c".
+gmake: *** [buffer.obj] Error 1
+Building file: "../led.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="led.d_raw"  "../led.c"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../init.c", line 45: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../init.c", line 46: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 47: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 48: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 49: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../clocks.c", line 92: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../clocks.c", line 93: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../clocks.c", line 126: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+Finished building: "../led.c"
+ 
+Building file: "../init.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="init.d_raw"  "../init.c"
+Finished building: "../init.c"
+ 
+Building file: "../clocks.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="clocks.d_raw"  "../clocks.c"
+Finished building: "../clocks.c"
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../main.c", line 231: warning #225-D: function "USCI_A0_transmit" declared implicitly
+"../main.c", line 209: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 229: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 244: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 264: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../main.c", line 63: remark #1535-D: (ULP 8.1) variable "dec_sec" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 68: remark #1535-D: (ULP 8.1) variable "ADC_Channel" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 75: remark #1535-D: (ULP 8.1) variable "wheel_state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 76: remark #1535-D: (ULP 8.1) variable "line" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 77: remark #1535-D: (ULP 8.1) variable "configure_wheels_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 82: remark #1535-D: (ULP 8.1) variable "two_rotations" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 83: remark #1535-D: (ULP 8.1) variable "turn_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 84: remark #1535-D: (ULP 8.1) variable "enter_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 99: remark #1535-D: (ULP 8.1) variable "x" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 104: remark #1535-D: (ULP 8.1) variable "process_index" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 106: remark #1535-D: (ULP 8.1) variable "tranlen" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 112: remark #1535-D: (ULP 8.1) variable "ring_index" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../wheels.c", line 53: remark #1535-D: (ULP 8.1) variable "configure_wheels_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../wheels.c", line 54: remark #1535-D: (ULP 8.1) variable "waitflag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../wheels.c", line 59: remark #1535-D: (ULP 8.1) variable "two_rotations" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../wheels.c", line 60: remark #1535-D: (ULP 8.1) variable "turn_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../wheels.c", line 62: remark #1535-D: (ULP 8.1) variable "enter_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../wheels.c"
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+Finished building: "../ports.c"
+ 
+Building file: "../timers.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project9/Project 9 works" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="timers.d_raw"  "../timers.c"
+"../Compiled/macros.h", line 19: warning #48-D: incompatible redefinition of macro "FALSE" (declared at line 1 of "../Compiled/ports.h")
+"../timers.c", line 278: remark #1538-D: (ULP 10.1) ISR switch1_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 286: remark #1538-D: (ULP 10.1) ISR switch1_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 312: remark #1538-D: (ULP 10.1) ISR switch2_interrupt calls function USCI_A0_transmit. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 313: remark #1538-D: (ULP 10.1) ISR switch2_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 316: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../timers.c", line 326: remark #1538-D: (ULP 10.1) ISR switch2_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 394: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 395: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 402: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 403: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 410: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 411: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 438: remark #1538-D: (ULP 10.1) ISR eUSCI_A0_ISR calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 477: remark #1538-D: (ULP 10.1) ISR eUSCI_A1_ISR calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 602: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../timers.c", line 603: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../timers.c", line 638: warning #552-D: variable "real_line" was set but never used
+"../timers.c", line 640: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../timers.c", line 640: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../timers.c", line 37: remark #1535-D: (ULP 8.1) variable "configure_wheels_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../timers.c", line 51: remark #1535-D: (ULP 8.1) variable "two_rotations" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../timers.c", line 54: remark #1535-D: (ULP 8.1) variable "turn_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../timers.c", line 57: remark #1535-D: (ULP 8.1) variable "enter_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../timers.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****

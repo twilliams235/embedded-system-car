@@ -1,0 +1,37 @@
+/*
+ * macros.h
+ *
+ *  Created on: Sep 14, 2023
+ *      Author: tylerwilliams
+ */
+
+#ifndef MACROS_H_
+#define MACROS_H_
+
+
+#define ALWAYS                  (1)
+#define RESET_STATE             (0)
+#define RED_LED              (0x01) // RED LED 0
+#define GRN_LED              (0x40) // GREEN LED 1
+#define TEST_PROBE           (0x01) // 0 TEST PROBE
+#define TRUE                 (0x01)
+
+#define TB0CCR0_INTERVAL    (50000) // 8,000,000 / 2 / 8 / (1 / 100msec)
+
+// STATES ========================================================
+#define WHEEL_COUNT_TIME                    (30)        //Controls the count period
+#define RIGHT_COUNT_TIME_STRAIGHT           (7)
+#define LEFT_COUNT_TIME_STRAIGHT            (7)
+#define TRAVEL_DISTANCE_STRAIGHT            (2)
+#define WAITING2START                       (150)
+
+#define RIGHT_COUNT_TIME_CLOCKWISE_CIRCLE           (1)
+#define LEFT_COUNT_TIME_CLOCKWISE_CIRCLE            (35)
+
+#define RIGHT_COUNT_TIME_COUNTERCLOCKWISE_CIRCLE           (35)
+#define LEFT_COUNT_TIME_COUNTERCLOCKWISE_CIRCLE            (1)
+
+#define TRAVEL_DISTANCE_CIRCLE            (20)
+
+
+#endif /* MACROS_H_ */

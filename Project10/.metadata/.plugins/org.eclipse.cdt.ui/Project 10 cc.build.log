@@ -1,0 +1,117 @@
+
+**** Build of configuration Debug for project Project 10 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 46: remark #1535-D: (ULP 8.1) variable "dec_sec" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 47: remark #1535-D: (ULP 8.1) variable "ADC_Channel" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "wheel_state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 54: remark #1535-D: (ULP 8.1) variable "configure_wheels_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 60: remark #1535-D: (ULP 8.1) variable "wheel_flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 64: remark #1535-D: (ULP 8.1) variable "usb_pb_index" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 65: remark #1535-D: (ULP 8.1) variable "iot_pb_index" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 77: remark #1535-D: (ULP 8.1) variable "displayflag1" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 78: remark #1535-D: (ULP 8.1) variable "displayflag0" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 79: remark #1535-D: (ULP 8.1) variable "fram_only" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 83: remark #1535-D: (ULP 8.1) variable "ring_index" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 93: remark #1535-D: (ULP 8.1) variable "leave_circle" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 94: remark #1535-D: (ULP 8.1) variable "blackline" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 96: remark #1535-D: (ULP 8.1) variable "circle_stop_count" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 97: remark #1535-D: (ULP 8.1) variable "circle_timer" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 100: remark #1535-D: (ULP 8.1) variable "wait_to_leave_timer" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 101: remark #1535-D: (ULP 8.1) variable "wait_to_leave" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../clocks.c", line 92: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../clocks.c", line 93: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../clocks.c", line 126: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../init.c", line 49: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../init.c", line 50: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 51: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 52: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 53: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 95: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../init.c", line 39: remark #1535-D: (ULP 8.1) variable "DAC_data" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../buffer.c", line 107: warning #176-D: expression has no effect
+"../buffer.c", line 119: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 120: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 127: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 128: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 128: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 134: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../buffer.c", line 137: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 138: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 138: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 143: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../buffer.c", line 146: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../buffer.c", line 147: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 147: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../buffer.c", line 46: remark #1535-D: (ULP 8.1) variable "IOT_parse" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../buffer.c", line 52: remark #1535-D: (ULP 8.1) variable "runflag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../buffer.c", line 68: remark #1535-D: (ULP 8.1) variable "start_timer" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../wheels.c", line 55: remark #1535-D: (ULP 8.1) variable "waitflag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building file: "../clocks.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="clocks.d_raw"  "../clocks.c"
+Finished building: "../clocks.c"
+ 
+Building file: "../init.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="init.d_raw"  "../init.c"
+Finished building: "../init.c"
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+Finished building: "../ports.c"
+ 
+Building file: "../buffer.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="buffer.d_raw"  "../buffer.c"
+Finished building: "../buffer.c"
+ 
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+Finished building: "../wheels.c"
+ 
+Building file: "../timers.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Project10/Project 10 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="timers.d_raw"  "../timers.c"
+"../timers.c", line 189: remark #1538-D: (ULP 10.1) ISR Timer0_B0_ISR calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 220: remark #1538-D: (ULP 10.1) ISR Timer0_B0_ISR calls function stop. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 224: remark #1538-D: (ULP 10.1) ISR Timer0_B0_ISR calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 354: remark #1538-D: (ULP 10.1) ISR switch1_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 357: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../timers.c", line 376: remark #1538-D: (ULP 10.1) ISR switch2_interrupt calls function strcpy. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 379: remark #1530-D: (ULP 5.1) Detected divide operation(s). Recommend moving them to RAM during run time or not using as these are processing/power intensive
+"../timers.c", line 445: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 446: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 453: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 454: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 461: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function HEXtoBCD. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 462: remark #1538-D: (ULP 10.1) ISR ADC_ISR calls function adc_line. Recommend moving function call away from ISR, or inlining the function, or using pragmas
+"../timers.c", line 638: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../timers.c", line 639: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../timers.c", line 674: warning #552-D: variable "real_line" was set but never used
+"../timers.c", line 676: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../timers.c", line 676: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../timers.c", line 41: remark #1535-D: (ULP 8.1) variable "leave_time" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../timers.c", line 91: remark #1535-D: (ULP 8.1) variable "count_to_stop" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../timers.c"
+ 
+Building target: "Project 10 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Project 10 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Project 10 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Project 10 cc.out" "./buffer.obj" "./clocks.obj" "./init.obj" "./main.obj" "./ports.obj" "./timers.obj" "./wheels.obj" "../Compiled/LCD.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Project 10 cc.out"
+ 
+
+**** Build Finished ****

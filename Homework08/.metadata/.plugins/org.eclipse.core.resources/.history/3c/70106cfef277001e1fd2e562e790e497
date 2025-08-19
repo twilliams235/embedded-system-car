@@ -1,0 +1,114 @@
+/*
+ * led.c
+ *
+ *  Created on: Sep 14, 2023
+ *      Author: tylerwilliams
+ */
+
+#include  "msp430.h"
+#include  <string.h>
+#include  "Compiled/functions.h"
+#include  "Compiled/LCD.h"
+#include  "Compiled/ports.h"
+#include  "Compiled/macros.h"
+#include  "Compiled/timers.h"
+
+
+extern char display_line[4][11];
+extern char *display[4];
+unsigned char display_mode;
+extern volatile unsigned char display_changed;
+extern volatile unsigned char update_display;
+
+unsigned int boot_state;
+unsigned char character;
+unsigned int line;
+unsigned int nextline;
+
+
+
+char process_buffer[25]; // Size for appropriate Command Length
+char pb_index; // Index for process_buffer
+
+void Init_LEDs(void){
+//------------------------------------------------------------------------------
+// LED Configurations
+//------------------------------------------------------------------------------
+// Turns on both LEDs
+  P1OUT &= ~RED_LED;
+  P6OUT &= ~GRN_LED;
+//------------------------------------------------------------------------------
+}
+
+
+void IOT_Process(void){ // Process IOT messages
+    int i;
+    unsigned int iot_rx_wr_temp;
+    iot_rx_wr_temp = iot_rx_wr;
+    if(iot_rx_wr_temp != iot_rx_rd){ // Determine if IOT is available
+        IOT_Data[line][character] = IOT_Ring_Rx[iot_rx_rd++];
+        if(iot_rx_rd >= sizeof(IOT_Ring_Rx)){
+            iot_rx_rd = BEGINNING;
+        }
+        if(IOT_Data[line][character] == 0x0A){
+            character = 0;
+            line++;
+            if(line >= 4){
+                line = 0;
+            }
+            nextline = line + 1;
+            if(nextline >= 4){
+                nextline = 0;
+            }
+        }else{
+            switch(character){
+            case 0:
+                if(IOT_Data[line][character] == '+'){ // Got "+"
+                    test_Value++;
+                    if(test_Value){
+                        RED_LED_ON;
+                    }
+                    IOT_parse = 1;
+                }
+                break;
+            case 1:
+                // GRN_LED_ON;
+                break;
+            case 4:
+                if(IOT_Data[line][character] == 'y'){ // Got read"y"
+                    for(i=0; i<sizeof(AT); i++){
+                        iot_TX_buf[i] = AT[i];
+                    }
+                    UCA0IE |= UCTXIE;
+                    boot_state = 1;
+                    // RED_LED_ON;
+                    GRN_LED_OFF;
+                }
+                break;
+            case 5:
+                if(IOT_Data[line][character] == 'G'){ // Got IP
+                    for(i=0; i<sizeof(ip_mac); i++){
+                        iot_TX_buf[i] = ip_mac[i];
+                    }
+                    iot_tx = 0;
+                    UCA0IE |= UCTXIE;
+                }
+                break;
+            case 6:
+                break;
+            case 10:
+                if(IOT_Data[line][character] == 'I'){
+                    ip_address_found = 1;
+                    strcpy(display_line[0], "IP Address");
+                    for(i=0; i<sizeof(ip_address); i++){
+                        ip_address[i] = 0;
+                    }
+                    display_changed = 1;
+                    iot_index = 0;
+                }
+                break;
+            default: break;
+            }
+        }
+    }
+}

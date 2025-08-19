@@ -1,0 +1,556 @@
+/*
+ * wheels.c
+ *
+ *  Created on: Sep 26, 2023
+ *      Author: tylerwilliams
+ */
+
+
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+
+  // Global Variables
+volatile char slow_input_down;
+extern char display_line[4][11];
+extern char *display[4];
+unsigned char display_mode;
+extern volatile unsigned char display_changed;
+extern volatile unsigned char update_display;
+extern volatile unsigned int update_display_count;
+extern volatile unsigned int Time_Sequence;
+extern volatile char one_time;
+unsigned int test_value;
+char chosen_direction;
+char change;
+unsigned int flag;
+
+unsigned int wheel_move;
+char forward;
+unsigned int moving;         //Variable Tyler created
+char start_moving;           //Variable Tyler created
+unsigned int Last_Time_Sequence;   //Variable to identify Time_Sequence has changed
+unsigned int cycle_time;            // time base used to control making shapes
+unsigned int time_change;           // an identifier that a change has occurred
+unsigned int delay_start;
+unsigned int left_motor_count;
+unsigned int right_motor_count;
+unsigned int segment_count;
+char state;
+char event;
+
+
+// Function Prototype
+void Go_Forward(void);
+void stop(void);
+void Go_Reverse(void);
+//void Run_Straight(void);
+//void wait_case(void);
+//void start_case(void);
+//void run_case(void);
+//void end_case(void);
+
+
+/*
+ * Function written for project 3 to go forwards
+ */
+void Go_Forward(void) {
+    if (!(P6OUT |= L_FORWARD)) {
+        P6OUT |= L_FORWARD;
+    }
+    if (!(P6OUT |= R_FORWARD)) {
+        P6OUT |= R_FORWARD;
+    }
+}
+
+/*
+ * Function written for project 5 to go backwards
+ */
+void Go_Reverse(void) {
+    if (!(P6OUT |= L_REVERSE)) {
+        P6OUT |= L_REVERSE;
+    }
+    if (!(P6OUT |= R_REVERSE)) {
+        P6OUT |= R_REVERSE;
+    }
+}
+
+/*
+ * Function written for project 3 to stop
+ */
+void stop(void) {
+    P6OUT &= ~L_FORWARD;
+    P6OUT &= ~R_FORWARD;
+
+    P6OUT &= ~L_REVERSE;
+    P6OUT &= ~R_REVERSE;
+}
+
+///*
+// * Function written for project 4
+// * State Machine called to repeatedly run through the case STRAIGHT without any delays
+// * Makes the car go straight
+// */
+//void Run_Straight(void) {
+//    switch(state) {
+//    case WAIT:
+//        wait_case();
+//        break;
+//    case START:
+//        start_case();
+//        break;
+//    case RUN:
+//        run_straight_case();
+//        break;
+//    case END:
+//        end_case();
+//        break;
+//    default: break;
+//    }
+//}
+//
+//void Run_Circle(void) {
+//    switch(state) {
+//    case WAIT:
+//        wait_case();
+//        break;
+//    case START:
+//        start_case();
+//        break;
+//    case RUN:
+//        run_circle_case();
+//        break;
+//    case END:
+//        end_case();
+//        break;
+//    default: break;
+//    }
+//}
+//
+//void Run_Figure8(void) {
+//    switch(state) {
+//    case WAIT:
+//        wait_case();
+//        break;
+//    case START:
+//        start_case();
+//        break;
+//    case RUN:
+//        run_figure8_case();
+//        break;
+//    case END:
+//        end_case();
+//        break;
+//    default: break;
+//    }
+//}
+//
+//void Run_Triangle(void) {
+//    switch(state) {
+//    case WAIT:
+//        wait_case();
+//        break;
+//    case START:
+//        start_case();
+//        break;
+//    case RUN:
+//        run_triangle_case();
+//        break;
+//    case END:
+//        end_case();
+//        break;
+//    default: break;
+//    }
+//}
+//
+//
+///*
+// * State case written for Project 4
+// * The first state "WAIT" which allows for the button to be pressed and time to move out of the way
+// */
+//void wait_case(void) {
+//    if(time_change) {
+//        time_change = 0;
+//        if(delay_start++ >= WAITING2START){
+//            delay_start = 0;
+//            state = START;
+//        }
+//    }
+//}
+//
+//
+///*
+// * State case written for Project 4
+// * The second state "START" sets the initial conditions
+// */
+//void start_case(void){
+//    cycle_time = 0;
+//    right_motor_count = 0;
+//    left_motor_count = 0;
+//    Go_Forward();
+//    segment_count = 0;
+//    state = RUN;
+//}
+//
+//
+///*
+// * State case written for Project 4
+// * The third state "RUN" controls the movement
+// * This case is to have a different version for each different shape
+// */
+//void run_straight_case(void){
+//    if(time_change){
+//        time_change = 0;
+//        if(segment_count <= TRAVEL_DISTANCE_STRAIGHT){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//    }
+//}
+//
+//
+///*
+// * State case written for Project 4 to drive a triangle
+// * The third state "RUN" controls the movement
+// * This case is to have a different version for each different shape
+// */
+//void run_triangle_case(void){
+//    if(time_change){
+//        time_change = 0;
+//        if(segment_count <= TRAVEL_DISTANCE_STRAIGHT1){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN1){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT2){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN2){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT3){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN3){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT4){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN4){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT5){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN5){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT6){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }
+////        else if(segment_count <= TRAVEL_DISTANCE_TRIANGLETURN6){
+////                if(right_motor_count++ >= RIGHT_COUNT_TIME_TRIANGLETURN){
+////                    P6OUT &= ~R_FORWARD;
+////                }
+////                if(left_motor_count++ >= LEFT_COUNT_TIME_TRIANGLETURN){
+////                    P6OUT &= ~L_FORWARD;
+////                }
+////                if(cycle_time >= WHEEL_COUNT_TIME_TRIANGLE){
+////                    cycle_time = 0;
+////                    right_motor_count = 0;
+////                    left_motor_count = 0;
+////                    segment_count++;
+////                    Go_Forward();
+////                }
+////            }
+////            else if(segment_count <= TRAVEL_DISTANCE_STRAIGHT7){
+////                if(right_motor_count++ >= RIGHT_COUNT_TIME_STRAIGHT){
+////                    P6OUT &= ~R_FORWARD;
+////                }
+////                if(left_motor_count++ >= LEFT_COUNT_TIME_STRAIGHT){
+////                    P6OUT &= ~L_FORWARD;
+////                }
+////                if(cycle_time >= WHEEL_COUNT_TIME){
+////                    cycle_time = 0;
+////                    right_motor_count = 0;
+////                    left_motor_count = 0;
+////                    segment_count++;
+////                    Go_Forward();
+////                }
+////            }
+//        else{
+//            state = END;
+//        }
+//    }
+//}
+//
+///*
+// * State case written for Project 4 to drive a circle
+// * The third state "RUN" controls the movement
+// * This case is to have a different version for each different shape
+// */
+//void run_circle_case(void){
+//    if(time_change){
+//        time_change = 0;
+//        if(segment_count <= TRAVEL_DISTANCE_CIRCLE){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_CIRCLE){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_CIRCLE){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//        }else{
+//            state = END;
+//            flag = 1;
+//        }
+//    }
+//}
+//
+//
+///*
+// * State case written for Project 4 to drive the first half of a figure-8
+// * The third state "RUN" controls the movement
+// * This case is to have a different version for each different shape
+// */
+//void run_figure8_case(void){
+//    if(time_change){
+//        time_change = 0;
+//        if(segment_count <= TRAVEL_DISTANCE_LOOP1){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_LOOP1){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_LOOP1){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_LOOP2) {
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_LOOP2){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_LOOP2){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_LOOP3) {
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_LOOP1){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_LOOP1){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//
+//        }
+//        else if(segment_count <= TRAVEL_DISTANCE_LOOP4){
+//            if(right_motor_count++ >= RIGHT_COUNT_TIME_LOOP2){
+//                P6OUT &= ~R_FORWARD;
+//            }
+//            if(left_motor_count++ >= LEFT_COUNT_TIME_LOOP2){
+//                P6OUT &= ~L_FORWARD;
+//            }
+//            if(cycle_time >= WHEEL_COUNT_TIME){
+//                cycle_time = 0;
+//                right_motor_count = 0;
+//                left_motor_count = 0;
+//                segment_count++;
+//                Go_Forward();
+//            }
+//
+//        }else{
+//            state = END;
+//            flag = 0;
+//        }
+//    }
+//}
+//
+//
+///*
+// * State case written for Project 4
+// * The last state "END" clears the state machine back to NONE so it ends and movements over
+// */
+//void end_case(void){
+//    stop();
+//    state = WAIT;
+//    event = NONE;
+//}
+
+
+
+

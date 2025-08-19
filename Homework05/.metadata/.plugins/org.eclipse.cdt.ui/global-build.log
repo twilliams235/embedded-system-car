@@ -1,0 +1,1064 @@
+
+**** Clean-only build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 clean -O 
+ 
+rm -rf  "Project 04 code.out" 
+rm -rf "clocks.obj" "init.obj" "led.obj" "main.obj" "ports.obj" "switches.obj" "system.obj" "wheels.obj" 
+rm -rf "clocks.d" "init.d" "led.d" "main.d" "ports.d" "switches.d" "system.d" "wheels.d" 
+Finished clean
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 90: error #20: identifier "port" is undefined
+"../main.c", line 95: error #66: expected a ";"
+"../main.c", line 137: warning #12-D: parsing restarts here after previous syntax error
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../switches.c", line 56: error #20: identifier "port" is undefined
+1 error detected in the compilation of "../switches.c".
+gmake: *** [switches.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../clocks.c", line 91: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../clocks.c", line 92: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../clocks.c", line 125: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../init.c", line 42: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../init.c", line 43: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 44: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 45: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 46: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+Building file: "../switches.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="switches.d_raw"  "../switches.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'switches.obj' failed
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+Building file: "../system.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="system.d_raw"  "../system.c"
+Finished building: "../system.c"
+ 
+Building file: "../led.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="led.d_raw"  "../led.c"
+Finished building: "../led.c"
+ 
+Building file: "../clocks.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="clocks.d_raw"  "../clocks.c"
+Finished building: "../clocks.c"
+ 
+Building file: "../init.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="init.d_raw"  "../init.c"
+Finished building: "../init.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 96: error #66: expected a ";"
+"../main.c", line 138: warning #12-D: parsing restarts here after previous syntax error
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+1 error detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+Building file: "../switches.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="switches.d_raw"  "../switches.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../switches.c", line 50: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../switches.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'main.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 101: error #141: too many arguments in function call
+"../main.c", line 104: error #141: too many arguments in function call
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+2 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../ports.c", line 18: error #148: declaration is incompatible with "void Init_Ports(void)" (declared at line 84 of "../functions.h")
+"../ports.c", line 22: error #141: too many arguments in function call
+"../ports.c", line 25: error #141: too many arguments in function call
+"../ports.c", line 123: error #148: declaration is incompatible with "void Init_Port3(void)" (declared at line 88 of "../functions.h")
+4 errors detected in the compilation of "../ports.c".
+gmake: *** [ports.obj] Error 1
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'ports.obj' failed
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../system.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="system.d_raw"  "../system.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../switches.c", line 50: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../clocks.c", line 91: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../clocks.c", line 92: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../clocks.c", line 125: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../init.c", line 42: remark #1544-D: (ULP 13.1) Detected loop counting up. Recommend loops count down as detecting zeros is easier
+"../init.c", line 43: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 44: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 45: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+"../init.c", line 46: remark #2553-D: (ULP 14.1) Array index (involving "i") of type "int". Recommend using "unsigned int"
+Finished building: "../system.c"
+ 
+Building file: "../switches.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="switches.d_raw"  "../switches.c"
+Finished building: "../switches.c"
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+Finished building: "../main.c"
+ 
+Building file: "../clocks.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="clocks.d_raw"  "../clocks.c"
+Finished building: "../clocks.c"
+ 
+Building file: "../led.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="led.d_raw"  "../led.c"
+Finished building: "../led.c"
+ 
+Building file: "../init.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="init.d_raw"  "../init.c"
+Finished building: "../init.c"
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+Finished building: "../ports.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 98: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+Finished building: "../ports.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../clocks.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="clocks.d_raw"  "../clocks.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../clocks.c", line 91: remark #1527-D: (ULP 2.1) Detected SW delay loop using __delay_cycles. Recommend using a timer module instead
+"../clocks.c", line 92: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+"../clocks.c", line 125: remark #1527-D: (ULP 2.1) Detected SW delay loop using empty loop. Recommend using a timer module instead
+Finished building: "../clocks.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+Finished building: "../ports.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 98: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 53: remark #1535-D: (ULP 8.1) variable "port" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+Finished building: "../ports.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../main.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../main.c", line 97: warning #225-D: function "Carlson_StateMachine" declared implicitly
+"../main.c", line 39: remark #1535-D: (ULP 8.1) variable "wheel_move" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 40: remark #1535-D: (ULP 8.1) variable "forward" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 41: remark #1535-D: (ULP 8.1) variable "moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 42: remark #1535-D: (ULP 8.1) variable "start_moving" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 50: remark #1535-D: (ULP 8.1) variable "flag" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+"../main.c", line 51: remark #1535-D: (ULP 8.1) variable "state" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+Finished building: "../main.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../wheels.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="wheels.d_raw"  "../wheels.c"
+ 
+>> Compilation failure
+subdir_rules.mk:7: recipe for target 'wheels.obj' failed
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+"../wheels.c", line 90: error #20: identifier "START" is undefined
+"../wheels.c", line 94: warning #225-D: function "run_straight_case" declared implicitly
+"../wheels.c", line 108: error #20: identifier "START" is undefined
+"../wheels.c", line 112: warning #225-D: function "run_circle_case" declared implicitly
+"../wheels.c", line 126: error #20: identifier "START" is undefined
+"../wheels.c", line 130: warning #225-D: function "run_figure8_case" declared implicitly
+"../wheels.c", line 144: error #20: identifier "START" is undefined
+"../wheels.c", line 148: warning #225-D: function "run_triangle_case" declared implicitly
+"../wheels.c", line 167: error #20: identifier "START" is undefined
+"../wheels.c", line 192: warning #161-D: declaration is incompatible with previous "run_straight_case" (declared at line 94)
+"../wheels.c", line 219: warning #161-D: declaration is incompatible with previous "run_triangle_case" (declared at line 148)
+"../wheels.c", line 428: warning #161-D: declaration is incompatible with previous "run_circle_case" (declared at line 112)
+"../wheels.c", line 458: warning #161-D: declaration is incompatible with previous "run_figure8_case" (declared at line 130)
+"../wheels.c", line 43: remark #1535-D: (ULP 8.1) variable "event" is used as a constant. Recommend declaring variable as either 'static const' or 'const'
+5 errors detected in the compilation of "../wheels.c".
+gmake: *** [wheels.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+gmake[1]: 'Homework 05 cc.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Homework 05 cc ****
+
+/Applications/ti/ccs1240/ccs/utils/bin/gmake -k -j 11 all -O 
+ 
+Building file: "../ports.c"
+Invoking: MSP430 Compiler
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --include_path="/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" --include_path="/Users/tylerwilliams/workspace_v12/Homework05/Homework 05 cc" --include_path="/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 --preproc_with_compile --preproc_dependency="ports.d_raw"  "../ports.c"
+"../LCD.h", line 46: warning #48-D: incompatible redefinition of macro "NULL" (declared at line 60 of "/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include/string.h")
+Finished building: "../ports.c"
+ 
+Building target: "Homework 05 cc.out"
+Invoking: MSP430 Linker
+"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/bin/cl430" -vmspx --use_hw_mpy=F5 --advice:power=all --advice:hw_config=all --define=__MSP430FR2355__ --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40 -z -m"Homework 05 cc.map" --heap_size=160 --stack_size=160 --cinit_hold_wdt=on -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/include" -i"/Applications/ti/ccs1240/ccs/ccs_base/msp430/lib/FR2xx" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/lib" -i"/Applications/ti/ccs1240/ccs/tools/compiler/ti-cgt-msp430_21.6.1.LTS/include" --priority --reread_libs --define=_FRWP_ENABLE --define=_INFO_FRWP_ENABLE --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Homework 05 cc_linkInfo.xml" --use_hw_mpy=F5 --rom_model -o "Homework 05 cc.out" "./clocks.obj" "./init.obj" "./led.obj" "./main.obj" "./ports.obj" "./switches.obj" "./system.obj" "../Compiled/LCD.obj" "../Compiled/timersB0.obj" "../lnk_msp430fr2355.cmd"  -lfrwp_init.a -llibc.a 
+<Linking>
+remark #10372-D: (ULP 4.1) Detected uninitialized Port A in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port B in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10372-D: (ULP 4.1) Detected uninitialized Port C in this project. Recommend initializing all unused ports to eliminate wasted current consumption on unused pins.
+remark #10422-D: (ULP 6.2) Detected use of a device with available 32-bit hardware multiplier and not also using MSPMATHLIB library (libmath.a).  Recommend using MSPMATHLIB library (libmath.a) for improved performance.
+Finished building target: "Homework 05 cc.out"
+ 
+
+**** Build Finished ****

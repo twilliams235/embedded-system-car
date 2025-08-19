@@ -1,0 +1,80 @@
+//------------------------------------------------------------------------------
+//
+//  Description: This file contains the System Configurations
+//
+//  Jim Carlson
+//  Sept 2023
+//  Built with Code Composer Version: CCS12.4.0.00007_win64
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+
+void enable_interrupts(void);
+
+//------------------------------------------------------------------------------
+// System Configurations
+
+// Tells the compiler to provide the value in reg as an input to an
+// in line assembly block.  Even though the block contains no instructions,
+// the compiler may not optimize it away, and is told that the value
+// may change and should not be relied upon.
+
+//in line void READ_AND_DISCARD(unsigned int reg) __attribute__((always_inline));
+//void READ_AND_DISCARD(unsigned int reg){
+//  asm volatile ("" : "=m" (reg) : "r" (reg));
+//}
+
+//in line void enable_interrupts(void) __attribute__((always_inline));
+void enable_interrupts(void){
+  __bis_SR_register(GIE);     // enable interrupts
+//  asm volatile ("eint \n");
+}
+
+//inline void disable_interrupts(void) __attribute__((always_inline));
+//void disable_interrupts(void){
+//  asm volatile ("dint \n");
+//}
+
+
+// TimerB0 0 Interrupt handler
+#pragma vector = TIMER0_B0_VECTOR
+__interrupt void Timer0_B0_ISR(void){
+    if(backlite_flag == 0) {
+        P6OUT |= LCD_BACKLITE;
+        backlite_flag = 1;
+    }
+    else {
+        P6OUT &= ~LCD_BACKLITE;
+        backlite_flag = 0;
+    }
+    TB0CCR0 += TB0CCR0_INTERVAL; // Add Offset to TBCCR0
+}
+#pragma vector=TIMER0_B1_VECTOR
+__interrupt void TIMER0_B1_ISR(void){
+//----------------------------------------------------------------------------
+// TimerB0 1-2, Overflow Interrupt Vector (TBIV) handler
+//----------------------------------------------------------------------------
+switch(__even_in_range(TB0IV,14)){
+case 0: break; // No interrupt
+case 2: // CCR1 not used
+...... Add What you need happen in the interrupt ......
+TB0CCR1 += TB0CCR1_INTERVAL; // Add Offset to TBCCR1
+break;
+case 4: // CCR2 not used
+...... Add What you need happen in the interrupt ......
+TB0CCR2 += TB0CCR2_INTERVAL; // Add Offset to TBCCR2
+break;
+case 14: // overflow
+...... Add What you need happen in the interrupt ......
+break;
+default: break;
+}
+//----------------------------------------------------------------------------
+}
+

@@ -1,0 +1,23 @@
+/*
+ * timers.h
+ *
+ *  Created on: Oct 09, 2023
+ *      Author: tylerwilliams
+ */
+
+
+
+#define TB0CCR0_INTERVAL    (50000) // 8,000,000 / 8 / 8 / (1 / 100msec)
+//#define TB0CCR1_INTERVAL    (50000) // 8,000,000 / 8 / 8 / (1 / 800msec)
+//#define TB0CCR2_INTERVAL    (50000) // 8,000,000 / 8 / 8 / (1 / 800msec)
+#define P4PUD               (P4OUT)
+#define P2PUD               (P2OUT)
+
+
+#define STOP1               ('S')
+#define FOR                 ('F')
+#define REV                 ('R')
+#define SPINCW              ('W')
+#define SPINCCW             ('C')
+#define STOP2               ('T')
+

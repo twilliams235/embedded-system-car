@@ -1,0 +1,157 @@
+//------------------------------------------------------------------------------
+//
+//  Description: This file contains the System Configurations
+//
+//  Jim Carlson
+//  Sept 2023
+//  Built with Code Composer Version: CCS12.4.0.00007_win64
+//------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------
+#include  "msp430.h"
+#include  <string.h>
+#include  "functions.h"
+#include  "LCD.h"
+#include  "ports.h"
+#include  "macros.h"
+#include  "timers.h"
+
+unsigned int dec_sec;
+extern volatile unsigned char update_display;
+extern volatile unsigned char display_changed;
+extern char display_line[4][11];
+extern unsigned int step;
+char event;
+extern unsigned int dec_sec;
+extern unsigned int second;
+
+void enable_interrupts(void);
+
+//------------------------------------------------------------------------------
+// System Configurations
+
+// Tells the compiler to provide the value in reg as an input to an
+// in line assembly block.  Even though the block contains no instructions,
+// the compiler may not optimize it away, and is told that the value
+// may change and should not be relied upon.
+
+//in line void READ_AND_DISCARD(unsigned int reg) __attribute__((always_inline));
+//void READ_AND_DISCARD(unsigned int reg){
+//  asm volatile ("" : "=m" (reg) : "r" (reg));
+//}
+
+//in line void enable_interrupts(void) __attribute__((always_inline));
+void enable_interrupts(void){
+  __bis_SR_register(GIE);     // enable interrupts
+//  asm volatile ("eint \n");
+}
+
+//inline void disable_interrupts(void) __attribute__((always_inline));
+//void disable_interrupts(void){
+//  asm volatile ("dint \n");
+//}
+
+
+// TimerB0 0 Interrupt handler
+#pragma vector = TIMER0_B0_VECTOR
+__interrupt void Timer0_B0_ISR(void){
+    switch(second){
+    case 1:
+        dec_sec++;
+        if(dec_sec == 10) {
+            dec_sec = 0;
+            if(step == 0 || step == 4) {
+                event = STOP1;
+                step++;
+            }
+            else if(step == 1) {
+                event = REV;
+                step++;
+            }
+            else if(step == 3) {
+                event = FOR;
+                step++;
+            }
+            else if(step == 5) {
+                event = SPINCW;
+                step++;
+            }
+        }
+        break;
+    case 2:
+        dec_sec++;
+        if(dec_sec == 20) {
+            dec_sec = 0;
+            if(step == 2) {
+                step++;
+                event = STOP1;
+            }
+            else if(step == 7) {
+                event = SPINCCW;
+                step++;
+            }
+
+        }
+        break;
+    case 3:
+        dec_sec++;
+        if(dec_sec == 30) {
+            dec_sec = 0;
+            if(step == 6) {
+                step++;
+                event = STOP2;
+            }
+            else if(step == 8) {
+                step++;
+                event = STOP2;
+            }
+        }
+        break;
+    default: break;
+    }
+
+    TB0CCR0 += TB0CCR0_INTERVAL; // Add Offset to TBCCR0
+}
+
+
+//------------------------------------------------------------------------------
+// Port 4 interrupt for switch 1, it is disabled for the duration
+// of the debounce time. Debounce time is set for 1 second
+#pragma vector=PORT4_VECTOR
+__interrupt void switch1_interrupt(void) {
+// Switch 1
+    if (P4IFG & SW1) {
+        if(startflag == 1) {
+            startflag = 0;
+            event = FOR;
+            second = 1;
+        }
+
+        P4IE &= ~SW1; //Disable Switch 1
+        P4IFG &= ~SW1; // Clear Switch 1 flag
+        TB0CCTL1 &= ~CCIFG; // Clear TimerB0 Interrupt Flag for Capture Compare Register 1
+        TB0CCR1 += TB0CCR1_INTERVAL; // Add Offset to TBCCR1
+        TB0CCTL1 |= CCIE; // Enable TimerB0_1
+    }
+//------------------------------------------------------------------------------
+}
+//------------------------------------------------------------------------------
+// Port 2 interrupt for switch 2, it is disabled for the duration
+// of the debounce time. Debounce time is set for 1 second
+#pragma vector=PORT2_VECTOR
+__interrupt void switch2_interrupt(void) {
+// Switch 2
+    if (P2IFG & SW2) {
+        event = START_STATE;
+        second = 0;
+        startflag = 1;
+        P2IE &= ~SW2;
+        P2IFG &= ~SW2; // IFG SW2 cleared
+        TB0CCTL1 &= ~CCIFG; //Clear TimerB0 Interrupt Flag for Capture Compare Register 1
+        TB0CCR2 += TB0CCR2_INTERVAL; // Add Offset to TBCCR2
+        TB0CCTL2 |= CCIE; // Enable TimerB0_2
+    }
+//
+}
+
+

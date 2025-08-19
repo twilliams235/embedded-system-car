@@ -1,0 +1,170 @@
+/*
+ * buffer.c
+ *
+ *  Created on: Nov 17, 2023
+ *      Author: tylerwilliams
+ */
+
+#include  "msp430.h"
+#include  <string.h>
+#include  "Compiled/functions.h"
+#include  "Compiled/LCD.h"
+#include  "Compiled/ports.h"
+#include  "Compiled/macros.h"
+#include  "Compiled/timers.h"
+
+
+
+extern unsigned int displayflag1;
+extern unsigned int displayflag0;
+extern unsigned int fram_only;
+extern unsigned int iot_rx_rd;
+extern unsigned int usb_rx_rd;
+extern unsigned int usb_pb_index; // Index for process_buffer
+extern unsigned int iot_pb_index;
+extern volatile char IOT_Ring_Rx[SMALL_RING_SIZE];
+extern volatile char IOT_Process_Tx[SMALL_RING_SIZE];
+extern volatile char USB_Ring_Rx[SMALL_RING_SIZE];
+extern volatile char USB_Process_Tx[SMALL_RING_SIZE];
+extern unsigned int iot_rx_wr;
+extern unsigned int usb_rx_wr;
+extern volatile unsigned char display_changed;
+extern volatile unsigned char update_display;
+extern char display_line[4][11];
+
+unsigned int i;
+unsigned int j;
+
+unsigned int ch;
+unsigned char command;
+unsigned int iot_flag;
+extern unsigned int round_UCA0;
+extern unsigned int round_UCA1;
+unsigned int found_null0;
+unsigned int found_null1;
+
+
+
+void process_UCA0(void);
+void process_UCA1(void);
+void handle_fram(void);
+void USCI_A0_transmit(void);
+void USCI_A1_transmit(void);
+
+
+
+//ring -> process for UCA1_1
+void process_UCA1(void) {
+    if(displayflag1 == TRUE) {
+        displayflag1 = FALSE;
+        while(usb_rx_rd != usb_rx_wr) {
+            USB_Process_Tx[usb_pb_index] = USB_Ring_Rx[usb_rx_rd];
+            if(USB_Process_Tx[usb_pb_index]== '\n') {
+                //If we get this \n we have a complete transaction
+                // When we have a complete transaction we process it
+                strcpy(display_line[3], "          ");
+                display_changed = TRUE;
+                update_display = TRUE;
+                usb_rx_rd++;
+                usb_pb_index = 0;
+                if(usb_rx_rd >= sizeof(USB_Ring_Rx)) {
+                    usb_rx_rd = 0;
+                }
+                break;
+            }
+            usb_rx_rd++;
+            if(usb_rx_rd >= sizeof(USB_Ring_Rx)) {
+                usb_rx_rd = 0;
+            }
+            usb_pb_index++;
+            if(usb_pb_index >= sizeof(USB_Process_Tx)) {
+                usb_pb_index = 0;
+                round_UCA1++;
+            }
+        }
+        if(fram_only == FALSE) {
+            USCI_A0_transmit();
+        }
+        else {
+            fram_only = FALSE;
+            handle_fram();
+        }
+    }
+}
+
+
+
+
+//ring -> process for UCA0
+void process_UCA0(void) {
+    if(displayflag0 == TRUE) {
+          displayflag0 = FALSE;
+          while(iot_rx_rd != iot_rx_wr) {
+              IOT_Process_Tx[iot_pb_index] = IOT_Ring_Rx[iot_rx_rd];
+              if(IOT_Process_Tx[iot_pb_index]== '\n') {
+                  strcpy(display_line[3], "          ");
+                  display_changed = TRUE;
+                  update_display = TRUE;
+                  iot_rx_rd++;
+                  iot_pb_index = 0;
+                  round_UCA0 = 0;
+                  if(iot_rx_rd >= sizeof(IOT_Ring_Rx)) {
+                      iot_rx_rd = 0;
+                  }
+                  break;
+              }
+              iot_rx_rd++;
+              if(iot_rx_rd >= sizeof(IOT_Ring_Rx)) {
+                  iot_rx_rd = 0;
+              }
+              iot_pb_index++;
+              if(iot_pb_index >= sizeof(IOT_Process_Tx)) {
+                  iot_pb_index = 0;
+                  round_UCA0++;
+              }
+          }
+          USCI_A1_transmit();
+    }
+}
+
+
+void handle_fram(void) {
+    ch = 0;
+    command = USB_Process_Tx[ch];
+    while(command != '^') {
+        ch++;
+        command = USB_Process_Tx[ch];
+    }
+    ch++;
+    command = USB_Process_Tx[ch];
+    switch(command) {
+    case SLOWBAUD:
+        strcpy(display_line[2], "  9,600   ");
+        display_changed = TRUE;
+        update_display = TRUE;
+        UCA0MCTLW = 0x4911; //9,600 baud
+        UCA0BRW = 52; // 9,600 baud
+        break;
+    case FASTBAUD:
+        strcpy(display_line[2], " 115,200  ");
+        display_changed = TRUE;
+        update_display = TRUE;
+        UCA1MCTLW = 0x5551; //115,200 baud
+        UCA1BRW = 4; // 115,200 baud
+        break;
+    case ENABLEIOT:
+        P3OUT |= IOT_EN;
+        P3OUT &= ~IOT_EN;
+        iot_flag = HIGH;
+        strcpy(display_line[2], " ENABLING ");
+        display_changed = TRUE;
+        update_display = TRUE;
+    default:
+        break;
+    }
+}
+
+
+
+
+
