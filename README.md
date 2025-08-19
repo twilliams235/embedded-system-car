@@ -1,4 +1,4 @@
-### MSP430 Line-Following IoT Car
+# MSP430 Line-Following IoT Car
 
 An embedded systems project for the TI MSP430 that follows a black line with IR sensing and accepts remote drive commands over Wi-Fi from a phone. Firmware includes a wheel-control state machine, PWM motor drive, UART-connected IoT module, ADC-based line detection, and an LCD status display. 
 
@@ -37,7 +37,7 @@ P6.1 RIGHT_FORWARD, P6.2 RIGHT_REVERSE, P6.3 LEFT_FORWARD, P6.4 LEFT_REVERSE.
 (See ports.c for full pin mapping.) 
 
 ## How It Works
-#Boot & Setup
+### Boot & Setup
 
 On reset the firmware initializes ports, clocks, timers, LCD, ADC, DAC, and serial ports; it then toggles IOT_EN and shows status on the LCD (“ENABLING”). 
 
@@ -50,16 +50,16 @@ The IoT process configures the module using AT commands:
 - AT+CIPSERVER=1,8091 (opens server on 8091)
 It then displays the IP on the LCD once available. 
 
-# Line Following
+### Line Following
 
 Wheels_Process() runs a state machine: find white → intercept black → align → trace. While tracing, ADC thresholds gate each wheel (both on, left off, right off) to stay on the line; a special BL CIRCLE stop/hold is displayed for verification. 
 
-# Remote Driving
+### Remote Driving
 
 Incoming bytes from the IoT UART are buffered and parsed. Commands trigger actions like Forward, Backward, Left, Right, Stop, Go, Turbo, Follow Line, and Dismount; timed moves use a countdown handled in the Timer B0 ISR. 
  
 
-# Timing & Control Loops
+### Timing & Control Loops
 
 - Timer B3 generates motor PWMs. 
 
@@ -69,7 +69,7 @@ Incoming bytes from the IoT UART are buffered and parsed. Commands trigger actio
 
 - UART ISRs (UCA0/UCA1) implement ring buffers and pass-through for IoT/USB terminals. 
 
-# Project Structure
+## Project Structure
 
 - main.c – System bring-up, peripheral init, main loop calling IOT_Process() and Wheels_Process(). 
 
